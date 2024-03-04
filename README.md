@@ -1,11 +1,13 @@
 #mproxy
 
 
+apt install gcc -y
 
-echo "# abc123" >> README.md 
-git init 
-git add README.md 
-git commit -m “第一次提交” 
-git 分支 -M 主
-git 远程添加原点https://github.com/f23997/abc123.git
- git Push - u 起源主要
+gcc -DPORTS=443 -o mproxy mproxy.c
+
+chmod +x mproxy
+
+
+./mproxy -l 8080 -h 127.0.0.1 443
+
+443端口为openvpn
