@@ -1,8 +1,10 @@
 mproxy代理host伪装混淆域名 转接openvpn
 这个代理和openvpn部署在同一个服务器
 下载文件
-wget
-https://github.com/f23997/abc123/files/14479919/mproxy.c.zip
+
+wget https://github.com/f23997/abc123/files/14479919/mproxy.c.zip
+
+
 解压文件
 unzip mproxy.c.zip
 
