@@ -1,58 +1,23 @@
+安装docker官方脚本
 
-安装docker
+
+curl -fsSL https://get.docker.com | bash -s docker
+
+国内安装docker
 如果安装最新版，直接输入如下命令即可
 
 apt install docker-ce docker-ce-cli containerd.io
-如果想安装特定版本的docker，那先查看一下支持哪些版本
-
-apt list -a docker-ce
 
 
-通过在软件包名后面添加版本=<VERSION>来安装指定版本：
-
-apt install docker-ce=<VERSION> docker-ce-cli=<VERSION> containerd.io
-最早的版本也得是5:20.10.13~3-0了
-
-比如apt install docker-ce=5:20.10.13~3-0~ubuntu-jammy docker-ce-cli=5:20.10.13~3-0~ubuntu-jammy containerd.io
-
- 安装完之后输入docker --version看一下版本号
- 
- 
- 卸载docker
-# 如果在运行，先停止docker
-systemctl stop docker
- 
-# 卸载docker软件包
-apt purge docker-ce docker-ce-cli containerd.io
- 
-# 删除docker项目目录，我还要多删除一个自定义的缓存目录
-rm -rf /var/lib/docker
-rm -rf /etc/docker
+启动
+systemctl start docker
 
 
-# 删除docker用户组
-groupdel docker
-
-修改docker的镜像源
-如果你在下载某些镜像的时候老超时失败，那你需要配一个docker的镜像源了，以我的ubuntu22.04为例，亲测有效
-
-# 编译docker的daemon文件，默认应该是没有的
-vi /etc/docker/daemon.json
- 
-# 打开文件之后复制一下内容，我用的是网易的源
-{
-  "registry-mirrors": ["http://hub-mirror.c.163.com"]
-}
-
-
-
-
-
-
+创建目录
 mkdir -p /opt/apps/openvpn
 
 
-下载op
+安装镜像
 docker pull kylemanna/openvpn:2.4
 
 
@@ -78,9 +43,11 @@ Enter pass phrase for /etc/openvpn/pki/private/ca.key:12345678
 
 
 
+
+
+
+
 #生成客户端证书（这里的whsir改成你想要的名字）
-
-
 docker run -v /opt/apps/openvpn:/etc/openvpn --rm -it kylemanna/openvpn:2.4 easyrsa build-client-full whsir nopass
 
 
@@ -90,11 +57,11 @@ docker run -v /opt/apps/openvpn:/etc/openvpn --rm -it kylemanna/openvpn:2.4 easy
 
 
 #导出客户端配置
-mkdir -p /opt/apps/openvpn/conf
+
 docker run -v /opt/apps/openvpn:/etc/openvpn --rm kylemanna/openvpn:2.4 ovpn_getclient whsir> /root/whsir.ovpn
 
 
-
+客户端文件在root目录 whsir.ovpn
 
 #启动OpenV服务
 docker run --name openvpn -v /opt/apps/openvpn:/etc/openvpn -d -p 1194:1194/tcp --cap-add=NET_ADMIN kylemanna/openvpn:2.4
@@ -107,20 +74,13 @@ docker start openvpn
 docker restart openvpn
 
 
-
-#创建用户脚本 user_create.sh
-#!/bin/bash
-read -p "please your username: " NAME
-docker run -v /opt/apps/openvpn:/etc/openvpn --rm -it kylemanna/openvpn:2.4 easyrsa build-client-full $NAME nopass
-docker run -v /opt/apps/openvpn:/etc/openvpn --rm kylemanna/openvpn:2.4 ovpn_getclient $NAME > /opt/apps/openvpn/conf/"$NAME".ovpn
-
-#删除用户脚本 user_del.sh
-#!/bin/bash
-read -p "Delete username: " DNAME
-docker run -v /opt/apps/openvpn:/etc/openvpn --rm -it kylemanna/openvpn:2.4 easyrsa revoke $DNAME
-docker run -v /opt/apps/openvpn:/etc/openvpn --rm -it kylemanna/openvpn:2.4 easyrsa gen-crl
-docker run -v /opt/apps/openvpn:/etc/openvpn --rm -it kylemanna/openvpn:2.4 rm -f /etc/openvpn/pki/reqs/"$DNAME".req
-docker run -v /opt/apps/openvpn:/etc/openvpn --rm -it kylemanna/openvpn:2.4 rm -f /etc/openvpn/pki/private/"$DNAME".key
-docker run -v /opt/apps/openvpn:/etc/openvpn --rm -it kylemanna/openvpn:2.4 rm -f /etc/openvpn/pki/issued/"$DNAME".crt
+开机启动容器
+命令：docker update --restart=always openvpn
 
 
+
+
+
+
+
+安装docker 安装op服务 搭建mproxy代理 修改客户端配置文件
