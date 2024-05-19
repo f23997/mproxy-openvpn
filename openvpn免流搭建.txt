@@ -101,11 +101,4 @@ http-proxy 这里填写代理ip 8080
 
 开机启动容器
 命令：docker update --restart=always openvpn
-
-
-
-
-
-
-
 安装docker 安装op服务 搭建mproxy代理 修改客户端配置文件
