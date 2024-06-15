@@ -88,6 +88,7 @@ apt install gcc -y
 
 ###centos用 yum 安装
 
+本机转发代理到openvpn端口，可改其他
 gcc -DPORTS=1194 -o mproxy mproxy.c
 
 chmod +x mproxy
