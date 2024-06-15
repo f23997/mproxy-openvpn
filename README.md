@@ -1,4 +1,4 @@
-搭建教程
+9搭建教程
 https://github.com/f23997/mproxy-openvpn/blob/main/openvpn免流搭建.txt
 
 
@@ -24,7 +24,7 @@ gcc -DPORTS=1194 -o mproxy mproxy.c
 chmod +x mproxy
 
 
-./mproxy -l 8080
+./mproxy -l 80
 
 如果1194端口为openvpn
 
