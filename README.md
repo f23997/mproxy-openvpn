@@ -1,4 +1,4 @@
-9搭建教程
+搭建教程
 https://github.com/f23997/mproxy-openvpn/blob/main/openvpn免流搭建.txt
 
 
