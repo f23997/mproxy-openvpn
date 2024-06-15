@@ -27,8 +27,7 @@ docker run -v /opt/apps/openvpn:/etc/openvpn --rm kylemanna/openvpn:2.4 ovpn_gen
 
 #生成密钥文件
 docker run -v /opt/apps/openvpn:/etc/openvpn --rm -it kylemanna/openvpn:2.4 ovpn_initpki
-
-
+输入yes
 
 输入私钥密码（输入时是看不见的）：
 Enter PEM pass phrase:12345678
@@ -95,10 +94,15 @@ chmod +x mproxy
 
 如果1194端口为openvpn
 
-在客户端修改添加任意host伪装域名
+在客户端修改添加任意host伪装域名v3-ml.douyinvod.com
+代理的端口才是免流端口可以改
+以下例子
 
+client
+nobind
+dev tun
+remote-cert-tls server
 remote v3-ml.douyinvod.com 80 tcp
-
 http-proxy 这里填写代理ip 8080
 
 
