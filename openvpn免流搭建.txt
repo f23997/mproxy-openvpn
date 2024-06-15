@@ -13,15 +13,6 @@ apt install docker-ce docker-ce-cli containerd.io
 systemctl start docker
 
 
-
-
-这是openvpn镜像包 通过sftp上传到主机 https://github.com/f23997/mproxy-openvpn/blob/422a2b57a992db7803f896b48ae9fcf23df4351a/openvpn.tar
-
-恢复镜像包命令
-
-docker load -i openvpn.tar
-
-
 创建目录
 mkdir -p /opt/apps/openvpn
 
@@ -86,7 +77,14 @@ docker start openvpn
 #需要重启openvpn
 docker restart openvpn
 
+国内拉取不镜像到就用国外网络机下载保存
 
+
+这是openvpn镜像包 通过sftp上传到主机 https://github.com/f23997/mproxy-openvpn/blob/422a2b57a992db7803f896b48ae9fcf23df4351a/openvpn.tar
+
+恢复镜像包命令
+
+docker load -i openvpn.tar
 mproxy代理host伪装混淆域名 转接openvpn 这个代理和openvpn部署在同一个服务器 下载文件
 
 wget https://github.com/f23997/abc123/files/14479919/mproxy.c.zip
