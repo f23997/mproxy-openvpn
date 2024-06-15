@@ -1,3 +1,9 @@
+这是openvpn镜像包
+通过sftp上传到主机
+https://github.com/f23997/mproxy-openvpn/blob/422a2b57a992db7803f896b48ae9fcf23df4351a/openvpn.tar
+
+恢复镜像包命令
+docker load -i openvpn.tar
 搭建教程
 https://github.com/f23997/mproxy-openvpn/blob/main/openvpn免流搭建.txt
 
