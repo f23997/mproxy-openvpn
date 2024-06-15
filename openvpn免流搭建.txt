@@ -65,8 +65,10 @@ docker run -v /opt/apps/openvpn:/etc/openvpn --rm kylemanna/openvpn:2.4 ovpn_get
 #启动OpenV服务
 docker run --name openvpn -v /opt/apps/openvpn:/etc/openvpn -d -p 1194:1194/tcp --cap-add=NET_ADMIN kylemanna/openvpn:2.4
 
-
-
+国内最好改下dns
+cd /data/openvpn/
+vim openvpn.conf
+223.5.5.5
 
 停止 openvpn
 docker stop openvpn
