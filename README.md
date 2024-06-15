@@ -2,8 +2,11 @@
 
 git clone https://github.com/f23997/mproxy-openvpn.git
 
+进入目录
+cd mproxy-openvpn
 
-openvpn镜像包
+openvpn.tar为openvpn镜像包
+
 通过sftp上传国内到主机
 
 
