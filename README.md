@@ -36,5 +36,5 @@ chmod +x mproxy
 remote v3-ml.douyinvod.com 80 tcp
 
 
-http-proxy 这里填写代理ip 8080
+http-proxy 这里填写代理ip 80
             
