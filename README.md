@@ -1,7 +1,10 @@
+下载到linux
 
 git clone https://github.com/f23997/mproxy-openvpn.git
-这是openvpn镜像包
-通过sftp上传到主机
+
+
+openvpn镜像包
+通过sftp上传国内到主机
 
 
 恢复镜像包命令
