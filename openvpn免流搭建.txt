@@ -6,7 +6,7 @@ curl -fsSL https://get.docker.com | bash -s docker
 国内安装docker
 如果安装最新版，直接输入如下命令即可
 
-apt install docker-ce docker-ce-cli containerd.io
+apt-get install docker-ce docker-ce-cli containerd.io
 
 
 启动
@@ -27,7 +27,6 @@ docker run -v /opt/apps/openvpn:/etc/openvpn --rm kylemanna/openvpn:2.4 ovpn_gen
 
 #生成密钥文件
 docker run -v /opt/apps/openvpn:/etc/openvpn --rm -it kylemanna/openvpn:2.4 ovpn_initpki
-输入yes
 
 输入私钥密码（输入时是看不见的）：
 Enter PEM pass phrase:12345678
