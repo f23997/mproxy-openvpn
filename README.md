@@ -1,4 +1,6 @@
 
+openvpn免流
+http connect代理把openvpn的流量伪装成http流量并修改host伪装任意域名
 
 搭建教程
 https://github.com/f23997/mproxy-openvpn/blob/main/搭建教程.txt
@@ -30,7 +32,7 @@ chmod +x mproxy
 
 如果1194端口为openvpn
 
-在客户端修改添加任意host伪装域名
+在openvpn客户端配置文件修改添加任意host伪装域名
 
 
 
