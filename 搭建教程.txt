@@ -99,7 +99,7 @@ gcc -o mproxy mproxy.c
 
 chmod +x mproxy
 
-./mproxy -l 80 -r 127.0.0.1:1194
+./mproxy -l 80 -r 127.0.0.1:1194 -d
 
 如果1194端口为openvpn
 免流端口一般80或者8080
