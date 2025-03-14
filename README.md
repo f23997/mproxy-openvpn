@@ -18,8 +18,7 @@ wget https://github.com/f23997/mproxy-openvpn/blob/main/mproxy.c
 
 
 
-解压文件
-unzip mproxy.c.zip
+
 
 apt install gcc -y
 
