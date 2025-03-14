@@ -8,9 +8,6 @@ https://github.com/f23997/mproxy-openvpn/blob/main/搭建教程.txt
 
 mproxy代理host伪装混淆域名 转接openvpn
 这个代理和openvpn部署在同一个服务器
-下载文件
-
-wget https://github.com/f23997/mproxy-openvpn/blob/17f9ca0bedc80c1748cf859a380a470c7a91fab8/mproxy.c.zip
 
 
 解压文件
