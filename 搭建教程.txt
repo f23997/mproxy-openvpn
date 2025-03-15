@@ -88,8 +88,14 @@ docker load -i openvpn.tar
 mproxy代理host伪装混淆域名 转接openvpn 这个代理和openvpn部署在同一个服务器 下载文件
 
 
-下载 wget https://github.com/f23997/mproxy-openvpn/blob/main/mproxy.c
 
+下载 wget https://github.com/user-attachments/files/19259799/mproxy.zip
+
+
+
+
+解压
+unzip mproxy.zip
 apt install gcc -y
 
 ###centos用 yum 安装
