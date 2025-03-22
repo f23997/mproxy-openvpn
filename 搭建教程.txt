@@ -100,7 +100,7 @@ apt install gcc -y
 ###centos用 yum 安装
 
 本机转发代理到openvpn端口，可改其他
-gcc -o mproxy mproxy.c
+gcc -o mproxy mproxy.c -pthread
 
 chmod +x mproxy
 
