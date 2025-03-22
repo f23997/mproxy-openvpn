@@ -89,7 +89,7 @@ mproxy代理host伪装混淆域名 转接openvpn 这个代理和openvpn部署在
 
 
 
-下载 wget https://github.com/user-attachments/files/19259799/mproxy.zip
+下载 wget https://github.com/user-attachments/files/19398824/mproxy.zip
 
 
 
