@@ -90,9 +90,8 @@ mproxy代理host伪装混淆域名 转接openvpn 这个代理和openvpn部署在
 
 
 下载 mproxy
-
 wget https://github.com/user-attachments/files/19399756/mproxy.zip
-
+ 
 解压
 unzip mproxy.zip
 apt install gcc -y
