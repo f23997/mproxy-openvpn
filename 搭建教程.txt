@@ -14,31 +14,14 @@ apt-get install docker-ce docker-ce-cli containerd.io
 systemctl start docker
 
 
-创建目录
-mkdir -p /opt/apps/openvpn
 
 
 安装镜像
 docker pull kylemanna/openvpn:2.4
 
 
-docker run -v /opt/apps/openvpn:/etc/openvpn --rm kylemanna/openvpn:2.4 ovpn_genconfig -u tcp://公网IP
-
-
-
-#生成密钥文件
-docker run -v /opt/apps/openvpn:/etc/openvpn --rm -it kylemanna/openvpn:2.4 ovpn_initpki
-
-输入私钥密码（输入时是看不见的）：
-Enter PEM pass phrase:12345678
-
-
-再输入一遍
-Verifying - Enter PEM pass phrase:12345678
-输入一个CA名称（我这里直接回车）
-Common Name (eg: your user, host, or server name) [Easy-RSA CA]:
-输入刚才设置的私钥密码（输入完成后会再让输入一次）
-Enter pass phrase for /etc/openvpn/pki/private/ca.key:12345678
+绝对路径
+mkdir -p /data/openvpn
 
 
 
@@ -46,28 +29,38 @@ Enter pass phrase for /etc/openvpn/pki/private/ca.key:12345678
 
 
 
-#生成客户端证书（这里的whsir改成你想要的名字）
-docker run -v /opt/apps/openvpn:/etc/openvpn --rm -it kylemanna/openvpn:2.4 easyrsa build-client-full whsir nopass
+
+
+改自己服务器公网ip
+docker run -v /data/openvpn:/etc/openvpn --rm kylemanna/openvpn:2.4 \
+  ovpn_genconfig -u tcp://服务器ip
+  
+  生成无密码证书
+docker run -v /data/openvpn:/etc/openvpn --rm -e EASYRSA_BATCH=1 -e EASYRSA_REQ_CN=OpenVPN_CA -it kylemanna/openvpn:2.4 ovpn_initpki nopass
+
+
+启动
+docker run -v /data/openvpn:/etc/openvpn -d -p 1194:1194/tcp \
+  --cap-add=NET_ADMIN --name openvpn kylemanna/openvpn:2.4
+  
+ 生成客户端配置文件 
+docker run -v /data/openvpn:/etc/openvpn --rm -it kylemanna/openvpn:2.4 \
+  easyrsa build-client-full client1 nopass
+  
+  
+客户端 配置文件在root目录1.ovpn
+docker run -v /data/openvpn:/etc/openvpn --rm kylemanna/openvpn:2.4 \
+  ovpn_getclient client1 > /root/1.ovpn
+  
+ 
 
 
 
-再输入密码12345678
-
-
-
-#导出客户端配置
-
-docker run -v /opt/apps/openvpn:/etc/openvpn --rm kylemanna/openvpn:2.4 ovpn_getclient whsir> /root/whsir.ovpn
-
-
-客户端文件在root目录 whsir.ovpn
-
-#启动OpenV服务
-docker run --name openvpn -v /opt/apps/openvpn:/etc/openvpn -d -p 1194:1194/tcp --cap-add=NET_ADMIN kylemanna/openvpn:2.4
+ss -nptl
 
 国内最好改下dns
-cd /opt/apps/openvpn/
-vim openvpn.conf
+cd /data/openvpn/
+vi openvpn.conf
 223.5.5.5
 
 停止 openvpn
@@ -82,9 +75,7 @@ docker restart openvpn
 
 
 
-恢复镜像包命令
 
-docker load -i openvpn.tar
 mproxy代理host伪装混淆域名 转接openvpn 这个代理和openvpn部署在同一个服务器 下载文件
 
 
