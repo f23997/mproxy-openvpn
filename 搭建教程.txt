@@ -13,23 +13,12 @@ apt-get install docker-ce docker-ce-cli containerd.io
 启动
 systemctl start docker
 
-
-
-
 安装镜像
 docker pull kylemanna/openvpn:2.4
 
 
 绝对路径
 mkdir -p /data/openvpn
-
-
-
-
-
-
-
-
 
 改自己服务器公网ip
 docker run -v /data/openvpn:/etc/openvpn --rm kylemanna/openvpn:2.4 \
@@ -54,7 +43,8 @@ docker run -v /data/openvpn:/etc/openvpn --rm kylemanna/openvpn:2.4 \
   
  
 
-
+开机启动容器
+命令：docker update --restart=always openvpn
 
 ss -nptl
 
@@ -71,10 +61,6 @@ docker start openvpn
 docker restart openvpn
 
 国内拉取不镜像到就用国外网络机下载保存
-
-
-
-
 
 mproxy代理host伪装混淆域名 转接openvpn 这个代理和openvpn部署在同一个服务器 下载文件
 
@@ -110,6 +96,5 @@ remote v3-ml.douyinvod.com 80 tcp
 http-proxy 这里填写代理ip 80
 
 
-开机启动容器
-命令：docker update --restart=always openvpn
+
 安装docker 安装op服务 搭建mproxy代理 修改客户端配置文件
