@@ -106,7 +106,7 @@ https://github.com/user-attachments/files/19901395/OpenVPN.Connect_3.3.0.apk.zip
 
 
 Windows
-https://openvpn.net/downloads/openvpn-connect-v3-windows.msi
+https://openvpn.net/downloads/
 
 
 
