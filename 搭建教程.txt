@@ -104,4 +104,10 @@ http-proxy 这里填写代理ip 80
 下载安卓客户端
 https://github.com/user-attachments/files/19901395/OpenVPN.Connect_3.3.0.apk.zip
 
+
+Windows
+https://openvpn.net/downloads/openvpn-connect-v3-windows.msi
+
+
+
 安装docker 安装op服务 搭建mproxy代理 修改客户端配置文件
