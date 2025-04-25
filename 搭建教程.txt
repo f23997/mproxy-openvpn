@@ -29,7 +29,7 @@ mkdir -p /data/openvpn
 docker run -v /data/openvpn:/etc/openvpn --rm kylemanna/openvpn:2.4 \
   ovpn_genconfig -u tcp://服务器ip
   
-  生成无密码证书
+  生成证书
 docker run -v /data/openvpn:/etc/openvpn --rm -e EASYRSA_BATCH=1 -e EASYRSA_REQ_CN=OpenVPN_CA -it kylemanna/openvpn:2.4 ovpn_initpki nopass
 
 
@@ -101,5 +101,7 @@ remote v3-ml.douyinvod.com 80 tcp
 http-proxy 这里填写代理ip 80
 
 
+下载安卓客户端
+https://github.com/user-attachments/files/19901395/OpenVPN.Connect_3.3.0.apk.zip
 
 安装docker 安装op服务 搭建mproxy代理 修改客户端配置文件
