@@ -5,7 +5,7 @@ http connect代理把流量伪装成connect流量并修改host伪装任意域名
 编译
 gcc -o mproxy mproxy.c -pthread
 
-监听http connect端口80并转发到任意ip地址和tcp协议的端口
+监听http connect端口80并转发ip地址和tcp协议的端口
 ./mproxy -l 80 -r 127.0.0.1:1194 -d
 
 ssh openvpn都支持代理
