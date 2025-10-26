@@ -11,7 +11,7 @@ gcc -o mproxy mproxy.c -pthread
 ssh openvpn都支持代理
 
 安卓termux在里面
-安装corkscrew
+安装corkscrew 
 
 手机socksdroid全局流量放行termux
 ssh -o ProxyCommand="corkscrew http connect代理服务器 80 %h %p" -v -D 2080 root@混淆域名 -p 80
