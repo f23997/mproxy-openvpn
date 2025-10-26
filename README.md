@@ -22,9 +22,12 @@ mproxy代理host伪装混淆域名 转接openvpn
 
 ssh篇
 安卓termux在里面
-安装corkscrew 
+安装corkscrew openssh
 
 手机socksdroid全局流量放行termux
+
+
+termux里面运行
 ssh -o ProxyCommand="corkscrew http connect代理服务器 80 %h %p" -v -D 2080 root@混淆域名 -p 80
 
 
