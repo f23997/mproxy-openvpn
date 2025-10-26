@@ -30,7 +30,7 @@ ssh篇
 termux里面运行
 ssh -o ProxyCommand="corkscrew 代理服务器 80 %h %p" -v -D 2080 root@混淆域名 -p 80
 
-ssh -o ProxyCommand="corkscrew 代理ip 80 %h %p" -v -D 2080 root@qq.com.com -p 80
+ssh -o ProxyCommand="corkscrew 代理ip 80 %h %p" -v -D 2080 root@qq.com -p 80
 
 服务器运./mproxy -l 80 -r 127.0.0.1:22 -d
 
