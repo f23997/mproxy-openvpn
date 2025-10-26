@@ -1,6 +1,6 @@
 
 openvpn免流
-http connect代理把流量伪装成connect流量并修改host伪装任意域名,只要它的协议支持http-proxy的方式
+http connect代理把流量伪装成connect流量并修改host伪装任意域名,只要它tcp支持http-proxy的方式
 
 编译
 gcc -o mproxy mproxy.c -pthread
@@ -9,6 +9,13 @@ gcc -o mproxy mproxy.c -pthread
 ./mproxy -l 80 -r 127.0.0.1:1194 -d
 
 ssh openvpn都支持代理
+
+安卓termux在里面
+安装corkscrew
+
+手机socksdroid全局流量放行termux
+ssh -o ProxyCommand="corkscrew http connect代理服务器 80 %h %p" -v -D 2080 root@混淆域名 -p 80
+
 
 
 搭建教程
