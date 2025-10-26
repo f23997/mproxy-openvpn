@@ -24,7 +24,7 @@ ssh篇
 安卓termux在里面
 安装corkscrew openssh
 
-手机socksdroid全局流量放行com.termux
+手机socksdroid连接本机2080端口，全局流量放行com.termux
 
 
 termux里面运行
