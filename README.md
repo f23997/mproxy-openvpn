@@ -10,13 +10,6 @@ gcc -o mproxy mproxy.c -pthread
 
 ssh openvpn都支持代理
 
-安卓termux在里面
-安装corkscrew 
-
-手机socksdroid全局流量放行termux
-ssh -o ProxyCommand="corkscrew http connect代理服务器 80 %h %p" -v -D 2080 root@混淆域名 -p 80
-
-
 
 搭建教程
 https://github.com/f23997/mproxy-openvpn/blob/main/搭建教程.txt
@@ -27,6 +20,15 @@ mproxy代理host伪装混淆域名 转接openvpn
 
 
 
+ssh篇
+安卓termux在里面
+安装corkscrew 
+
+手机socksdroid全局流量放行termux
+ssh -o ProxyCommand="corkscrew http connect代理服务器 80 %h %p" -v -D 2080 root@混淆域名 -p 80
+
+
+服务器运./mproxy -l 80 -r 127.0.0.1:22 -d
 
 
 
