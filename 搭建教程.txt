@@ -41,15 +41,31 @@ docker run -v /data/openvpn:/etc/openvpn -d -p 1194:1194/tcp \
   --cap-add=NET_ADMIN --name openvpn kylemanna/openvpn:2.4
   
  生成客户端配置文件 
-docker run -v /data/openvpn:/etc/openvpn --rm -it kylemanna/openvpn:2.4 \
-  easyrsa build-client-full client1 nopass
-  
-  
-客户端 配置文件在root目录1.ovpn
-docker run -v /data/openvpn:/etc/openvpn --rm kylemanna/openvpn:2.4 \
-  ovpn_getclient client1 > /root/1.ovpn
-  
- 
+
+ mkdir -p clients
+
+# 从for复制到done
+for i in {1..20}; do
+    CLIENT="user${i}"
+    echo "ing......: $CLIENT"
+    
+    
+    docker run -v /data/openvpn:/etc/openvpn --rm kylemanna/openvpn \
+        easyrsa build-client-full "$CLIENT" nopass < /dev/null
+    
+    
+    docker run -v /data/openvpn:/etc/openvpn --rm kylemanna/openvpn \
+        ovpn_getclient "$CLIENT" > "clients/$CLIENT.ovpn"
+done
+
+
+
+
+客户端文件目录
+cd ~/clients
+
+
+下载文件到设备使用
 
 开机启动容器
 命令：docker update --restart=always openvpn
