@@ -12,6 +12,12 @@ User Guide https://github.com/f23997/openvpn-Free-internet/blob/main/%E6%90%AD%E
 openvpn http伪装
 -
 
+# -d          : Run hoproxy in the background (detached/daemon mode)
+# -l 80    : Listen on local port 8080
+# -r 127.0.0.1:1194 : Forward all incoming connections to localhost:1194 (local OpenVPN port)
+
+./hoproxy -d -l 80 -r 127.0.0.1:1194
+
 一般代理会发送connect 真实ip和端口，hoproxy会发送connect任意自定义域名端口，转发到指定的地址tcp端口
 
 客户端任意域名请求，在客户端填写远程ip的地方可以改写任意域名，转到指定ip端口
