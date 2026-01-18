@@ -4,7 +4,7 @@ ubuntu20搭建
 
 不要翻译为中文
 
-curl -fsSL https://get.docker.com | bash -s docker
+curl -fsSL https://get.docker.com | bash
 
 国内安装docker
 如果安装最新版，直接输入如下命令即可
