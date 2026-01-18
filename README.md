@@ -6,10 +6,10 @@ openvpn免流篇
 代理从客户端获取任意域名请求，在客户端填写远程ip的地方可以改写任意域名，转到指定ip端口
 
 编译
-gcc -o mproxy mproxy.c -pthread
+gcc hoproxy.c -o hoproxy
 
 
-./mproxy -l 80 -r 127.0.0.1:1194 -d
+./hoproxy -l 80 -r 127.0.0.1:1194 -d
 
 ssh openvpn都支持代理
 
