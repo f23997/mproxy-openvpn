@@ -1,4 +1,5 @@
-OpenVPN HTTP camouflage / disguise
+OpenVPN HTTP camouflage / disguise  Usable
+Can be used bug host
 -
 Normal proxies send CONNECT with the real IP and port.
 Hoproxy sends CONNECT with any custom domain + port, then forwards to the specified real TCP address/port.
@@ -8,7 +9,7 @@ SSH and OpenVPN both support this kind of proxy.
 You can also use tools like proxytunnel.
 Basically, any protocol that supports http-proxy can use this method.
 User Guide https://github.com/f23997/openvpn-Free-internet/blob/main/%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B.txt
--
+
 openvpn http伪装
 Works in countries with internet censorship
 Can be used in countries with internet restrictions
