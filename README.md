@@ -1,5 +1,14 @@
+OpenVPN HTTP camouflage / disguise
+Normal proxies send CONNECT with the real IP and port.
+Hoproxy sends CONNECT with any custom domain + port, then forwards to the specified real TCP address/port.
+The client can request any arbitrary domain name.
+In the place where you fill in the "remote IP" on the client side, you can actually put any domain name you want — it will be rewritten and forwarded to the specified IP:port.
+SSH and OpenVPN both support this kind of proxy.
+You can also use tools like proxytunnel.
+Basically, any protocol that supports http-proxy can use this method.
 
-openvpn http伪装
+
+✔✔✔openvpn http伪装✔✔✔
 
 一般代理会发送connect 真实ip和端口，hoproxy会发送connect任意自定义域名端口，转发到指定的地址tcp端口
 
