@@ -40,8 +40,8 @@ docker run -v /data/openvpn:/etc/openvpn --rm -e EASYRSA_BATCH=1 -e EASYRSA_REQ_
 docker run -v /data/openvpn:/etc/openvpn -d -p 1194:1194/tcp \
   --cap-add=NET_ADMIN --name openvpn kylemanna/openvpn:2.4
   
- 生成客户端配置文件 
-
+ 生成20个客户端配置文件 
+建立文件夹
  mkdir -p clients
 
 # 从for复制到done
