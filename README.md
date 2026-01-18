@@ -2,18 +2,11 @@
 openvpn http伪装
 
 
-也能搭配proxytunnel 使用
-代理从客户端获取任意域名请求，在客户端填写远程ip的地方可以改写任意域名，转到指定ip端口
 
-编译
-
-gcc hoproxy.c -o hoproxy
-
-
-./hoproxy -l 80 -r 127.0.0.1:1194 -d
-
+客户端任意域名请求，在客户端填写远程ip的地方可以改写任意域名，转到指定ip端口
 ssh openvpn都支持代理
-
+也能搭配proxytunnel 使用
+只要是支持http-proxy的协议都可以使用
 
 搭建教程
 https://github.com/f23997/openvpn-Free-internet/blob/main/%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B.txt
