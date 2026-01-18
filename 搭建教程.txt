@@ -25,9 +25,9 @@ docker pull kylemanna/openvpn:2.4
 绝对路径
 mkdir -p /data/openvpn
 
-改自己服务器公网ip
+改最后面serverip为自己服务器公网ip
 docker run -v /data/openvpn:/etc/openvpn --rm kylemanna/openvpn:2.4 \
-  ovpn_genconfig -u tcp://服务器ip
+  ovpn_genconfig -u tcp://serverip
   
   生成证书
 docker run -v /data/openvpn:/etc/openvpn --rm -e EASYRSA_BATCH=1 -e EASYRSA_REQ_CN=OpenVPN_CA -it kylemanna/openvpn:2.4 ovpn_initpki nopass
