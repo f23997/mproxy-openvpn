@@ -7,8 +7,8 @@ In the place where you fill in the "remote IP" on the client side, you can actua
 SSH and OpenVPN both support this kind of proxy.
 You can also use tools like proxytunnel.
 Basically, any protocol that supports http-proxy can use this method.
-
-
+User Guide https://github.com/f23997/openvpn-Free-internet/blob/main/%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B.txt
+-
 openvpn http伪装
 -
 
