@@ -15,7 +15,7 @@ ssh openvpn都支持代理
 
 
 搭建教程
-https://github.com/f23997/mproxy-openvpn/blob/main/搭建教程.txt
+https://github.com/f23997/openvpn-Free-internet/blob/main/%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B.txt
 
 
 
