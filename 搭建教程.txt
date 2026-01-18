@@ -67,25 +67,24 @@ docker restart openvpn
 
 国内拉取不镜像到就用国外网络机下载保存
 
-mproxy代理host伪装混淆域名 转接openvpn 这个代理和openvpn部署在同一个服务器 下载文件
+hoproxy代理host伪装混淆域名 转接openvpn 这个代理和openvpn部署在同一个服务器 下载文件
 
 
 
-下载 mproxy
-wget https://github.com/user-attachments/files/19561275/mproxy.zip
+
  
 解压
 unzip mproxy.zip
-apt install gcc -y
+apt install gcc socat -y
 
 ###centos用 yum 安装
 
 本机转发代理到openvpn端口，可改其他
-gcc -o mproxy mproxy.c -pthread
 
-chmod +x mproxy
+gcc hoproxy.c -o hoproxy
 
-./mproxy -l 80 -r 127.0.0.1:1194 -d
+
+./hoproxy -l 80 -r 127.0.0.1:1194 -d
 
 如果1194端口为openvpn
 免流端口一般80或者8080
@@ -101,13 +100,8 @@ remote v3-ml.douyinvod.com 80 tcp
 http-proxy 这里填写代理ip 80
 
 
-下载安卓客户端
-https://github.com/user-attachments/files/19901395/OpenVPN.Connect_3.3.0.apk.zip
-
-
-Windows
-https://openvpn.net/client/
 
 
 
-安装docker 安装op服务 搭建mproxy代理 修改客户端配置文件
+
+安装docker 安装op服务 搭建hoproxy代理 修改客户端配置文件
