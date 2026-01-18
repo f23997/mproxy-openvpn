@@ -1,4 +1,5 @@
 OpenVPN HTTP camouflage / disguise
+-
 Normal proxies send CONNECT with the real IP and port.
 Hoproxy sends CONNECT with any custom domain + port, then forwards to the specified real TCP address/port.
 The client can request any arbitrary domain name.
