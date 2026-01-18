@@ -70,11 +70,12 @@ docker restart openvpn
 hoproxy代理host伪装混淆域名 转接openvpn 这个代理和openvpn部署在同一个服务器 下载文件
 
 
-
+下载
+wget https://github.com/user-attachments/files/24693197/hoproxy.c.zip
 
  
 解压
-unzip mproxy.zip
+unzip hoproxy.c.zip
 apt install gcc socat -y
 
 ###centos用 yum 安装
