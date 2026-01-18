@@ -8,7 +8,8 @@ You can also use tools like proxytunnel.
 Basically, any protocol that supports http-proxy can use this method.
 
 
-✔✔✔openvpn http伪装✔✔✔
+openvpn http伪装
+-
 
 一般代理会发送connect 真实ip和端口，hoproxy会发送connect任意自定义域名端口，转发到指定的地址tcp端口
 
