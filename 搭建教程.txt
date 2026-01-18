@@ -56,10 +56,7 @@ docker run -v /data/openvpn:/etc/openvpn --rm kylemanna/openvpn:2.4 \
 
 ss -nptl
 
-国内最好改下dns
-cd /data/openvpn/
-vi openvpn.conf
-223.5.5.5
+
 
 停止 openvpn
 docker stop openvpn
@@ -109,3 +106,9 @@ http-proxy 这里填写代理ip 80
 
 
 安装docker 安装op服务 搭建hoproxy代理 修改客户端配置文件
+
+
+国内最好改下dns
+cd /data/openvpn/
+vi openvpn.conf
+223.5.5.5
